@@ -18,15 +18,33 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS people;
-# ... 
-SET FOREIGN_KEY_CHECKS=1;
+DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS peopleroles;
+DROP TABLE IF EXISTS peopleskills;
+DROP TABLE IF EXISTS skills;
+SET FOREIGN_KEY_CHECKS=1; 
+
 
 # Section 2
-# Create skills( id,name, description, tag, url, time_commitment)
+# Create skills( skills_id,name, description, tag, url, time_commitment)
 # ID, name, description and tag cannot be NULL. Other fields can default to NULL.
 # tag is a skill category grouping.  You can assign it based on your skill descriptions.
 # time committment offers some sense of how much time was required (or will be required) to gain the skill.
 # You can assign the skill descriptions.  Please be creative!
+
+DROP TABLE IF EXISTS skills;
+
+CREATE TABLE skills (
+    skills_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(4096) NOT NULL,
+    tag VARCHAR(255) NOT NULL,
+    url VARCHAR(255) default NULL,
+    time_commitment VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (skills_id)
+);
+
+
 
 
 # Section 3
@@ -34,29 +52,74 @@ SET FOREIGN_KEY_CHECKS=1;
 # Populates the skills table with eight skills, their tag fields must exactly contain “Skill 1”, “Skill 2”, etc.
 # You can assign skill names.  Please be creative!
 
+INSERT INTO skills (skills_id, name, description, tag, url, time_commitment)
+VALUES
+    (1, 'Digital Marketing Mastery', 'Master the art of digital marketing strategies and social media campaigns.', 'Skill 1', 'https://example.com/digital-marketing', 80),
+    (2, 'Mobile App Development', 'Learn to build mobile applications for iOS and Android platforms.', 'Skill 2', 'https://example.com/app-development', 120),
+    (3, 'Graphic Design Essentials', 'Explore the principles of graphic design and create visually appealing artworks.', 'Skill 3', 'https://example.com/graphic-design', 60),
+    (4, 'Machine Learning Fundamentals', 'Dive into the basics of machine learning algorithms and applications.', 'Skill 4', 'https://example.com/machine-learning', 100),
+    (5, 'Creative Writing Techniques', 'Hone your creative writing skills and craft compelling stories and articles.', 'Skill 5', 'https://example.com/creative-writing', 40),
+    (6, 'Photography for Beginners', 'Discover the fundamentals of photography and capture stunning images.', 'Skill 6', 'https://example.com/photography', 50),
+    (7, 'Agile Project Management', 'Master Agile methodologies for efficient project planning and execution.', 'Skill 7', 'https://example.com/agile-project-management', 90),
+    (8, 'Cybersecurity Essentials', 'Understand the basics of cybersecurity and protect digital assets from threats.', 'Skill 8', 'https://example.com/cybersecurity', 70);
+
+SELECT * FROM skills;
+
+
 
 # Section 4
-# Create people( id,first_name, last_name, email, linkedin_url, headshot_url, discord_handle, brief_bio, date_joined)
+# Create people( people_id, first_name, last_name, email, linkedin_url, headshot_url, discord_handle, brief_bio, date_joined)
 # ID cannot be null, Last name cannot be null, date joined cannot be NULL.
 # All other fields can default to NULL.
 
+DROP TABLE IF EXISTS people;
+
 CREATE TABLE people (
-    people_id int,
-    people_last_name varchar(256) NOT NULL,
+    people_id INT NOT NULL,
+    first_name VARCHAR(255) DEFAULT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) DEFAULT NULL,
+    linkedin_url VARCHAR(255) DEFAULT NULL,
+    headshot_url VARCHAR(255) DEFAULT NULL,
+    discord_handle VARCHAR(255) DEFAULT NULL,
+    brief_bio VARCHAR(4096) DEFAULT NULL,
+    date_joined DATE NOT NULL,
     PRIMARY KEY (people_id)
 );
+
 
 # Section 5
 # Populate people with six people.
 # Their last names must exactly be “Person 1”, “Person 2”, etc.
 # Other fields are for you to assign.
 
-insert into people (people_id,people_last_name) values (1,'Person 1');
+INSERT INTO people (people_id, first_name, last_name, email, linkedin_url, headshot_url, discord_handle, brief_bio, date_joined)
+VALUES
+    (1, 'John', 'Person 1', 'john.person1@example.com', 'https://linkedin.com/in/johnperson1', 'https://example.com/headshots/john_person1.jpg', 'john_person1_discord', 'Bio for John Person 1', '2023-01-01'),
+    (2, 'Jane', 'Person 2', 'jane.person2@example.com', 'https://linkedin.com/in/janeperson2', 'https://example.com/headshots/jane_person2.jpg', 'jane_person2_discord', 'Bio for Jane Person 2', '2023-02-01'),
+    (3, 'Bob', 'Person 3', 'bob.person3@example.com', 'https://linkedin.com/in/bobperson3', 'https://example.com/headshots/bob_person3.jpg', 'bob_person3_discord', 'Bio for Bob Person 3', '2023-03-01'),
+    (4, 'Alice', 'Person 4', 'alice.person4@example.com', 'https://linkedin.com/in/aliceperson4', 'https://example.com/headshots/alice_person4.jpg', 'alice_person4_discord', 'Bio for Alice Person 4', '2023-04-01'),
+    (5, 'Charlie', 'Person 5', 'charlie.person5@example.com', 'https://linkedin.com/in/charlieperson5', 'https://example.com/headshots/charlie_person5.jpg', 'charlie_person5_discord', 'Bio for Charlie Person 5', '2023-05-01'),
+    (6, 'Eve', 'Person 6', 'eve.person6@example.com', 'https://linkedin.com/in/eveperson6', 'https://example.com/headshots/eve_person6.jpg', 'eve_person6_discord', 'Bio for Eve Person 6', '2023-06-01');
+
+
+SELECT * FROM people;
+
 
 
 # Section 6
-# Create peopleskills( id, skills_id, people_id, date_acquired )
+# Create peopleskills( peopleskills_id, skills_id, people_id, date_acquired )
 # None of the fields can ba NULL. ID can be auto_increment.
+
+DROP TABLE IF EXISTS peopleskills;
+
+CREATE TABLE peopleskills (
+    peopleskills_id INT AUTO_INCREMENT PRIMARY KEY,
+    skills_id INT NOT NULL,
+    people_id INT NOT NULL,
+    date_acquired DATE NOT NULL
+);
+
 
 
 # Section 7
@@ -72,11 +135,61 @@ insert into people (people_id,people_last_name) values (1,'Person 1');
 # Person 9 has skills 2,5,6;
 # Person 10 has skills 1,4,5;
 # Note that no one has yet acquired skills 7 and 8.
- 
+
+
+INSERT INTO peopleskills( skills_id, people_id, date_acquired)VALUES
+    (1, 1, '2023-01-01'), -- Person 1 has skills 1
+    (3, 1, '2023-01-01'), -- Person 1 has skills 3
+    (6, 1, '2023-01-01'), -- Person 1 has skills 6
+
+    (3, 2, '2023-02-01'), -- Person 2 has skills 3
+    (4, 2, '2023-02-01'), -- Person 2 has skills 4
+    (5, 2, '2023-02-01'), -- Person 2 has skills 5
+
+    (1, 3, '2023-03-01'), -- Person 3 has skills 1
+    (5, 3, '2023-03-01'), -- Person 3 has skills 5
+
+    -- Person 4 has no skills
+
+    (3, 5, '2023-05-01'), -- Person 5 has skills 3
+    (6, 5, '2023-05-01'), -- Person 5 has skills 6
+
+    (2, 6, '2023-06-01'), -- Person 6 has skills 2
+    (3, 6, '2023-06-01'), -- Person 6 has skills 3
+    (4, 6, '2023-06-01'), -- Person 6 has skills 4
+
+    (3, 7, '2023-07-01'), -- Person 7 has skills 3
+    (5, 7, '2023-07-01'), -- Person 7 has skills 5
+    (6, 7, '2023-07-01'), -- Person 7 has skills 6
+
+    (1, 8, '2023-08-01'), -- Person 8 has skills 1
+    (3, 8, '2023-08-01'), -- Person 8 has skills 3
+    (5, 8, '2023-08-01'), -- Person 8 has skills 5
+    (6, 8, '2023-08-01'), -- Person 8 has skills 6
+
+    (2, 9, '2023-09-01'), -- Person 9 has skills 2
+    (5, 9, '2023-09-01'), -- Person 9 has skills 5
+    (6, 9, '2023-09-01'), -- Person 9 has skills 6
+
+    (1, 10, '2023-10-01'), -- Person 10 has skills 1
+    (4, 10, '2023-10-01'), -- Person 10 has skills 4
+    (5, 10, '2023-10-01'); -- Person 10 has skills 5
+
+ SELECT * FROM peopleskills;
+
 
 # Section 8
 # Create roles( id, name, sort_priority )
 # sort_priority is an integer and is used to provide an order for sorting roles
+
+DROP TABLE IF EXISTS roles;
+
+CREATE TABLE roles (
+    roles_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    sort_priority INT NOT NULL,
+    PRIMARY KEY (roles_id)
+);
 
 
 
@@ -85,12 +198,30 @@ insert into people (people_id,people_last_name) values (1,'Person 1');
 # Designer, Developer, Recruit, Team Lead, Boss, Mentor
 # Sort priority is assigned numerically in the order listed above (Designer=10, Developer=20, Recruit=30, etc.)
 
+INSERT INTO roles (roles_id, name, sort_priority)
+VALUES
+    (1, 'Designer', 10),
+    (2, 'Developer', 20),
+    (3, 'Recruit', 30),
+    (4, 'Team Lead', 40),
+    (5, 'Boss', 50),
+    (6, 'Mentor', 60);
 
+
+SELECT * FROM roles;
 
 # Section 10
-# Create peopleroles( id, people_id, role_id, date_assigned )
+# Create peopleroles( id, people_id, roles_id, date_assigned )
 # None of the fields can be null.  ID can be auto_increment
 
+DROP TABLE IF EXISTS peopleroles;
+
+CREATE TABLE peopleroles (
+    peopleroles_id INT AUTO_INCREMENT PRIMARY KEY,
+    people_id INT NOT NULL,
+    roles_id INT NOT NULL,
+    date_assigned DATE NOT NULL
+);
 
 
 # Section 11
@@ -106,3 +237,23 @@ insert into people (people_id,people_last_name) values (1,'Person 1');
 # Person 9 is Developer
 # Person 10 is Developer and Designer
 
+INSERT INTO peopleroles (people_id, roles_id, date_assigned)
+VALUES
+    (1, 2, '2023-01-15'), -- Person 1 is Developer
+    (2, 5, '2023-02-20'), -- Person 2 is Boss
+    (2, 6, '2023-02-20'), -- Person 2 is Mentor
+    (3, 2, '2023-03-10'), -- Person 3 is Developer
+    (3, 4, '2023-03-10'), -- Person 3 is Team Lead
+    (4, 3, '2023-04-05'), -- Person 4 is Recruit
+    (5, 3, '2023-05-12'), -- Person 5 is Recruit
+    (6, 2, '2023-06-18'), -- Person 6 is Developer
+    (6, 1, '2023-06-18'), -- Person 6 is Designer
+    (7, 1, '2023-07-25'), -- Person 7 is Designer
+    (8, 1, '2023-08-30'), -- Person 8 is Designer
+    (8, 4, '2023-08-30'), -- Person 8 is Team Lead
+    (9, 2, '2023-09-05'), -- Person 9 is Developer
+    (10, 2, '2023-10-15'), -- Person 10 is Developer
+    (10, 1, '2023-10-15'); -- Person 10 is Designer
+
+
+SELECT * FROM peopleroles;
