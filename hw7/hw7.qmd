@@ -199,12 +199,12 @@ Let's explore the database!
 #| echo: false
 #| eval: true
 sql = f"""
-SELECT skills_name, skills_tag, skills_description
+SELECT name AS skills_name, tag AS skills_tag, description AS skills_description
 FROM skills
-ORDER BY skills_name ASC;
+ORDER BY name ASC;
 """
 try:
-    df = pd.read_sql(sql,cnx)
+    df = pd.read_sql(sql, cnx)
     df
 except Exception as e:
     message = str(e)
@@ -213,22 +213,6 @@ except Exception as e:
 df
 ```
 
-
-
-
-```{python}
-#| echo: false
-#| eval: true
-try:
-    df = pd.read_sql(sql,cnx)
-    df
-except Exception as e:
-    message = str(e)
-    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
-    df = pd.DataFrame()
-df
-
-```
 
 
 ### List people names and email addresses ordered by last_name
@@ -241,7 +225,7 @@ FROM people
 ORDER BY last_name ASC;
 """
 try:
-    df = pd.read_sql(sql,cnx)
+    df = pd.read_sql(sql_skills,cnx)
     df
 except Exception as e:
     message = str(e)
@@ -258,17 +242,16 @@ sql = f"""
 SELECT s.skills_name
 FROM skills s
 JOIN peopleskills ps ON s.skills_id = ps.skills_id
-WHERE ps.people_id = 1;
-
+WHERE ps.people_id = 1 ; 
 """
 try:
-    df = pd.read_sql(sql,cnx)
-    df
+    df_skills = pd.read_sql(sql_skills,cnx)
+    df_skills
 except Exception as e:
     message = str(e)
     print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
-    df = pd.DataFrame()
-df
+    df_skills = pd.DataFrame()
+df_skills
 ```
 
 ### List people names with Skill 6
@@ -303,12 +286,12 @@ JOIN roles r ON pr.role_id = r.roles_id
 WHERE r.roles_name = 'Developer';
 """
 try:
-    df = pd.read_sql(sql,cnx)
+    df_roles = pd.read_sql(sql_roles,cnx)
     df
 except Exception as e:
     message = str(e)
     print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
-    df = pd.DataFrame()
+    df_roles = pd.DataFrame()
 df
 ```
 
@@ -343,7 +326,7 @@ LEFT JOIN peopleskills ps ON s.skills_id = ps.skills_id
 WHERE ps.people_id IS NULL;
 """
 try:
-    df = pd.read_sql(sql,cnx)
+    df_skills = pd.read_sql(sql_skills,cnx)
     df
 except Exception as e:
     message = str(e)
@@ -356,22 +339,24 @@ df
 ```{python}
 #| echo: false
 #| eval: true
-sql = f"""
-SELECT DISTINCT p.first_name, p.last_name, s.skills_name
+sql = """
+SELECT DISTINCT p.first_name, p.last_name, s.name AS skills_name
 FROM people p
-JOIN peopleroles pr ON p.people_id = pr.people_id
-JOIN roles r ON pr.role_id = r.roles_id AND r.roles_name = 'Boss'
-LEFT JOIN peopleskills ps ON p.people_id = ps.people_id
-LEFT JOIN skills s ON ps.skills_id = s.skills_id;
+JOIN peopleroles pr ON p.id = pr.people_id
+JOIN roles r ON pr.role_id = r.id AND r.name = 'Boss'
+LEFT JOIN peopleskills ps ON p.id = ps.people_id
+LEFT JOIN skills s ON ps.skills_id = s.id;
 """
+
 try:
-    df = pd.read_sql(sql,cnx)
-    df
+    df_roles = pd.read_sql(sql_roles, cnx)
+    df_roles
 except Exception as e:
     message = str(e)
     print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
-    df = pd.DataFrame()
-df
+    df_roles = pd.DataFrame()
+
+df_roles
 ```
 
 ### List ids and names of unused roles
@@ -385,13 +370,13 @@ LEFT JOIN peopleroles pr ON r.roles_id = pr.role_id
 WHERE pr.people_id IS NULL;
 """
 try:
-    df = pd.read_sql(sql,cnx)
-    df
+    df_roles = pd.read_sql(sql_roles,cnx)
+    df_roles
 except Exception as e:
     message = str(e)
     print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
     df = pd.DataFrame()
-df
+df_roles
 ```
 
 ## Reflection

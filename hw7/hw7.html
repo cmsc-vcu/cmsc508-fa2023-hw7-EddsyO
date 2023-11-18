@@ -3647,19 +3647,6 @@ z-index: 1000;
 <section id="list-skill-names-tags-and-descriptions-ordered-by-name" class="level1">
 <h1>List skill names, tags, and descriptions ordered by name</h1>
 <div class="cell" data-execution_count="8">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.OperationalError) (1054, &quot;Unknown column &#39;skills_name&#39; in &#39;field list&#39;&quot;)
-[SQL: 
-SELECT skills_name, skills_tag, skills_description
-FROM skills
-ORDER BY skills_name ASC;
-]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-
-Ignoring and moving on.</code></pre>
-</div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
@@ -3668,40 +3655,60 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">skills_name</th>
+<th data-quarto-table-cell-role="th">skills_tag</th>
+<th data-quarto-table-cell-role="th">skills_description</th>
 </tr>
 </thead>
 <tbody>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="9">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.OperationalError) (1054, &quot;Unknown column &#39;skills_name&#39; in &#39;field list&#39;&quot;)
-[SQL: 
-SELECT skills_name, skills_tag, skills_description
-FROM skills
-ORDER BY skills_name ASC;
-]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-
-Ignoring and moving on.</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Agile Project Management</td>
+<td>Skill 7</td>
+<td>Master Agile methodologies for efficient proje...</td>
 </tr>
-</thead>
-<tbody>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Creative Writing Techniques</td>
+<td>Skill 5</td>
+<td>Hone your creative writing skills and craft co...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Cybersecurity Essentials</td>
+<td>Skill 8</td>
+<td>Understand the basics of cybersecurity and pro...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Digital Marketing Mastery</td>
+<td>Skill 1</td>
+<td>Master the art of digital marketing strategies...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Graphic Design Essentials</td>
+<td>Skill 3</td>
+<td>Explore the principles of graphic design and c...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Machine Learning Fundamentals</td>
+<td>Skill 4</td>
+<td>Dive into the basics of machine learning algor...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Mobile App Development</td>
+<td>Skill 2</td>
+<td>Learn to build mobile applications for iOS and...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Photography for Beginners</td>
+<td>Skill 6</td>
+<td>Discover the fundamentals of photography and c...</td>
+</tr>
 </tbody>
 </table>
 
@@ -3710,8 +3717,8 @@ Ignoring and moving on.</code></pre>
 </div>
 <section id="list-people-names-and-email-addresses-ordered-by-last_name" class="level3">
 <h3 class="anchored" data-anchor-id="list-people-names-and-email-addresses-ordered-by-last_name">List people names and email addresses ordered by last_name</h3>
-<div class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
@@ -3719,47 +3726,86 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">first_name</th>
-<th data-quarto-table-cell-role="th">last_name</th>
-<th data-quarto-table-cell-role="th">email</th>
+<th data-quarto-table-cell-role="th">skills_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">tag</th>
+<th data-quarto-table-cell-role="th">url</th>
+<th data-quarto-table-cell-role="th">time_commitment</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>John</td>
-<td>Person 1</td>
-<td>john.person1@example.com</td>
+<td>1</td>
+<td>Digital Marketing Mastery</td>
+<td>Master the art of digital marketing strategies...</td>
+<td>Skill 1</td>
+<td>https://example.com/digital-marketing</td>
+<td>80</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>Jane</td>
-<td>Person 2</td>
-<td>jane.person2@example.com</td>
+<td>2</td>
+<td>Mobile App Development</td>
+<td>Learn to build mobile applications for iOS and...</td>
+<td>Skill 2</td>
+<td>https://example.com/app-development</td>
+<td>120</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>Bob</td>
-<td>Person 3</td>
-<td>bob.person3@example.com</td>
+<td>3</td>
+<td>Graphic Design Essentials</td>
+<td>Explore the principles of graphic design and c...</td>
+<td>Skill 3</td>
+<td>https://example.com/graphic-design</td>
+<td>60</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>Alice</td>
-<td>Person 4</td>
-<td>alice.person4@example.com</td>
+<td>4</td>
+<td>Machine Learning Fundamentals</td>
+<td>Dive into the basics of machine learning algor...</td>
+<td>Skill 4</td>
+<td>https://example.com/machine-learning</td>
+<td>100</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>Charlie</td>
-<td>Person 5</td>
-<td>charlie.person5@example.com</td>
+<td>5</td>
+<td>Creative Writing Techniques</td>
+<td>Hone your creative writing skills and craft co...</td>
+<td>Skill 5</td>
+<td>https://example.com/creative-writing</td>
+<td>40</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
-<td>Eve</td>
-<td>Person 6</td>
-<td>eve.person6@example.com</td>
+<td>6</td>
+<td>Photography for Beginners</td>
+<td>Discover the fundamentals of photography and c...</td>
+<td>Skill 6</td>
+<td>https://example.com/photography</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7</td>
+<td>Agile Project Management</td>
+<td>Master Agile methodologies for efficient proje...</td>
+<td>Skill 7</td>
+<td>https://example.com/agile-project-management</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8</td>
+<td>Cybersecurity Essentials</td>
+<td>Understand the basics of cybersecurity and pro...</td>
+<td>Skill 8</td>
+<td>https://example.com/cybersecurity</td>
+<td>70</td>
 </tr>
 </tbody>
 </table>
@@ -3770,23 +3816,8 @@ Ignoring and moving on.</code></pre>
 </section>
 <section id="list-skill-names-of-person-1" class="level3">
 <h3 class="anchored" data-anchor-id="list-skill-names-of-person-1">List skill names of Person 1</h3>
-<div class="cell" data-execution_count="11">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.OperationalError) (1054, &quot;Unknown column &#39;s.skills_name&#39; in &#39;field list&#39;&quot;)
-[SQL: 
-SELECT s.skills_name
-FROM skills s
-JOIN peopleskills ps ON s.skills_id = ps.skills_id
-WHERE ps.people_id = 1;
-
-]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-
-Ignoring and moving on.</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -3794,9 +3825,87 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">skills_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">tag</th>
+<th data-quarto-table-cell-role="th">url</th>
+<th data-quarto-table-cell-role="th">time_commitment</th>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Digital Marketing Mastery</td>
+<td>Master the art of digital marketing strategies...</td>
+<td>Skill 1</td>
+<td>https://example.com/digital-marketing</td>
+<td>80</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Mobile App Development</td>
+<td>Learn to build mobile applications for iOS and...</td>
+<td>Skill 2</td>
+<td>https://example.com/app-development</td>
+<td>120</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Graphic Design Essentials</td>
+<td>Explore the principles of graphic design and c...</td>
+<td>Skill 3</td>
+<td>https://example.com/graphic-design</td>
+<td>60</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Machine Learning Fundamentals</td>
+<td>Dive into the basics of machine learning algor...</td>
+<td>Skill 4</td>
+<td>https://example.com/machine-learning</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Creative Writing Techniques</td>
+<td>Hone your creative writing skills and craft co...</td>
+<td>Skill 5</td>
+<td>https://example.com/creative-writing</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>Photography for Beginners</td>
+<td>Discover the fundamentals of photography and c...</td>
+<td>Skill 6</td>
+<td>https://example.com/photography</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7</td>
+<td>Agile Project Management</td>
+<td>Master Agile methodologies for efficient proje...</td>
+<td>Skill 7</td>
+<td>https://example.com/agile-project-management</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8</td>
+<td>Cybersecurity Essentials</td>
+<td>Understand the basics of cybersecurity and pro...</td>
+<td>Skill 8</td>
+<td>https://example.com/cybersecurity</td>
+<td>70</td>
+</tr>
 </tbody>
 </table>
 
@@ -3806,8 +3915,8 @@ Ignoring and moving on.</code></pre>
 </section>
 <section id="list-people-names-with-skill-6" class="level3">
 <h3 class="anchored" data-anchor-id="list-people-names-with-skill-6">List people names with Skill 6</h3>
-<div class="cell" data-execution_count="12">
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -3839,23 +3948,8 @@ Ignoring and moving on.</code></pre>
 </section>
 <section id="list-people-with-a-developer-role" class="level3">
 <h3 class="anchored" data-anchor-id="list-people-with-a-developer-role">List people with a DEVELOPER role</h3>
-<div class="cell" data-execution_count="13">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.OperationalError) (1054, &quot;Unknown column &#39;r.roles_name&#39; in &#39;where clause&#39;&quot;)
-[SQL: 
-SELECT p.first_name, p.last_name
-FROM people p
-JOIN peopleroles pr ON p.people_id = pr.people_id
-JOIN roles r ON pr.role_id = r.roles_id
-WHERE r.roles_name = &#39;Developer&#39;;
-]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-
-Ignoring and moving on.</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
@@ -3863,9 +3957,21 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">last_name</th>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>John</td>
+<td>Person 1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Charlie</td>
+<td>Person 5</td>
+</tr>
 </tbody>
 </table>
 
@@ -3875,8 +3981,8 @@ Ignoring and moving on.</code></pre>
 </section>
 <section id="list-names-and-email-addresses-of-people-without-skills" class="level3">
 <h3 class="anchored" data-anchor-id="list-names-and-email-addresses-of-people-without-skills">List names and email addresses of people without skills</h3>
-<div class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -3905,22 +4011,8 @@ Ignoring and moving on.</code></pre>
 </section>
 <section id="list-names-and-tags-of-unused-skills" class="level3">
 <h3 class="anchored" data-anchor-id="list-names-and-tags-of-unused-skills">List names and tags of unused skills</h3>
-<div class="cell" data-execution_count="15">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.OperationalError) (1054, &quot;Unknown column &#39;s.skills_name&#39; in &#39;field list&#39;&quot;)
-[SQL: 
-SELECT s.skills_name, s.skills_tag
-FROM skills s
-LEFT JOIN peopleskills ps ON s.skills_id = ps.skills_id
-WHERE ps.people_id IS NULL;
-]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-
-Ignoring and moving on.</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -3928,9 +4020,18 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">email</th>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Alice</td>
+<td>Person 4</td>
+<td>alice.person4@example.com</td>
+</tr>
 </tbody>
 </table>
 
@@ -3940,24 +4041,8 @@ Ignoring and moving on.</code></pre>
 </section>
 <section id="list-people-names-and-skill-names-with-the-boss-role" class="level3">
 <h3 class="anchored" data-anchor-id="list-people-names-and-skill-names-with-the-boss-role">List people names and skill names with the BOSS role</h3>
-<div class="cell" data-execution_count="16">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.OperationalError) (1054, &quot;Unknown column &#39;s.skills_name&#39; in &#39;field list&#39;&quot;)
-[SQL: 
-SELECT DISTINCT p.first_name, p.last_name, s.skills_name
-FROM people p
-JOIN peopleroles pr ON p.people_id = pr.people_id
-JOIN roles r ON pr.role_id = r.roles_id AND r.roles_name = &#39;Boss&#39;
-LEFT JOIN peopleskills ps ON p.people_id = ps.people_id
-LEFT JOIN skills s ON ps.skills_id = s.skills_id;
-]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-
-Ignoring and moving on.</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -3965,9 +4050,48 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">roles_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">sort_priority</th>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Designer</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Developer</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Recruit</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Team Lead</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Boss</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>Mentor</td>
+<td>60</td>
+</tr>
 </tbody>
 </table>
 
@@ -3977,22 +4101,8 @@ Ignoring and moving on.</code></pre>
 </section>
 <section id="list-ids-and-names-of-unused-roles" class="level3">
 <h3 class="anchored" data-anchor-id="list-ids-and-names-of-unused-roles">List ids and names of unused roles</h3>
-<div class="cell" data-execution_count="17">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.OperationalError) (1054, &quot;Unknown column &#39;r.roles_name&#39; in &#39;field list&#39;&quot;)
-[SQL: 
-SELECT r.roles_id, r.roles_name
-FROM roles r
-LEFT JOIN peopleroles pr ON r.roles_id = pr.role_id
-WHERE pr.people_id IS NULL;
-]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-
-Ignoring and moving on.</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
 
@@ -4000,9 +4110,48 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">roles_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">sort_priority</th>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Designer</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Developer</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Recruit</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Team Lead</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Boss</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>Mentor</td>
+<td>60</td>
+</tr>
 </tbody>
 </table>
 
