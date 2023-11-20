@@ -3341,6 +3341,22 @@ z-index: 1000;
 
 <p>This file is a scaffold document written in Quarto (<code>.qmd</code> extension) that includes Python code snippets using the Quarto evaluation (<code>#| eval: true</code>) and echo (<code>#| echo: false</code>) directives. The document focuses on connecting to a MySQL database using SQLAlchemy and executing sample SQL queries. It also includes sections describing the database schema, a crow’s-foot diagram, examples of data in the database tables (<code>people</code>, <code>skills</code>, <code>roles</code>), and sample queries for exploring the database. Additionally, the document contains a section for reflection, inviting the author to share their thoughts and insights about the assignment.</p>
 <p>GITHUB URL: https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-EddsyO</p>
+<div class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>Missing CMSC508_USER in .env file
+Missing CMSC508_PASSWORD in .env file
+Missing CMSC508_HOST in .env file
+Missing HW7_DB_NAME in .env file</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="cell-output cell-output-stdout">
+<pre><code>Database/SQL Error:
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+</code></pre>
+</div>
+</div>
 <section id="overview-and-description" class="level2">
 <h2 class="anchored" data-anchor-id="overview-and-description">Overview and description</h2>
 <p>The project involves setting up a MySQL database for a learning platform or similar system. The database appears to manage information about people (likely users or participants), their skills, and assigned roles. The database schema includes tables such as <code>people</code>, <code>skills</code>, <code>roles</code>, <code>peopleskills</code>, and <code>peopleroles</code>. The <code>people</code> table likely stores user information, the <code>skills</code> table contains information about various skills, and the <code>roles</code> table defines different roles. The relationships between people, skills, and roles are managed through the <code>peopleskills</code> and <code>peopleroles</code> tables, which track the acquisition of skills and assignment of roles to individuals, respectively. The project aims to organize and track user data, skills, and roles within the specified MySQL database.</p>
@@ -3377,6 +3393,14 @@ z-index: 1000;
 <p>The <em>people</em> table contains elements that describe …</p>
 <p>Below is a list of data in the <em>people</em> table.</p>
 <div class="cell" data-execution_count="5">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -3385,90 +3409,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">people_id</th>
-<th data-quarto-table-cell-role="th">first_name</th>
-<th data-quarto-table-cell-role="th">last_name</th>
-<th data-quarto-table-cell-role="th">email</th>
-<th data-quarto-table-cell-role="th">linkedin_url</th>
-<th data-quarto-table-cell-role="th">headshot_url</th>
-<th data-quarto-table-cell-role="th">discord_handle</th>
-<th data-quarto-table-cell-role="th">brief_bio</th>
-<th data-quarto-table-cell-role="th">date_joined</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>John</td>
-<td>Person 1</td>
-<td>john.person1@example.com</td>
-<td>https://linkedin.com/in/johnperson1</td>
-<td>https://example.com/headshots/john_person1.jpg</td>
-<td>john_person1_discord</td>
-<td>Bio for John Person 1</td>
-<td>2023-01-01</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>Jane</td>
-<td>Person 2</td>
-<td>jane.person2@example.com</td>
-<td>https://linkedin.com/in/janeperson2</td>
-<td>https://example.com/headshots/jane_person2.jpg</td>
-<td>jane_person2_discord</td>
-<td>Bio for Jane Person 2</td>
-<td>2023-02-01</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>Bob</td>
-<td>Person 3</td>
-<td>bob.person3@example.com</td>
-<td>https://linkedin.com/in/bobperson3</td>
-<td>https://example.com/headshots/bob_person3.jpg</td>
-<td>bob_person3_discord</td>
-<td>Bio for Bob Person 3</td>
-<td>2023-03-01</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>4</td>
-<td>Alice</td>
-<td>Person 4</td>
-<td>alice.person4@example.com</td>
-<td>https://linkedin.com/in/aliceperson4</td>
-<td>https://example.com/headshots/alice_person4.jpg</td>
-<td>alice_person4_discord</td>
-<td>Bio for Alice Person 4</td>
-<td>2023-04-01</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>5</td>
-<td>Charlie</td>
-<td>Person 5</td>
-<td>charlie.person5@example.com</td>
-<td>https://linkedin.com/in/charlieperson5</td>
-<td>https://example.com/headshots/charlie_person5.jpg</td>
-<td>charlie_person5_discord</td>
-<td>Bio for Charlie Person 5</td>
-<td>2023-05-01</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>6</td>
-<td>Eve</td>
-<td>Person 6</td>
-<td>eve.person6@example.com</td>
-<td>https://linkedin.com/in/eveperson6</td>
-<td>https://example.com/headshots/eve_person6.jpg</td>
-<td>eve_person6_discord</td>
-<td>Bio for Eve Person 6</td>
-<td>2023-06-01</td>
-</tr>
 </tbody>
 </table>
 
@@ -3481,6 +3424,14 @@ z-index: 1000;
 <p>The <em>skills</em> table contains elements that describe …</p>
 <p>Below is a list of data in the <em>skills</em> table.</p>
 <div class="cell" data-execution_count="6">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
@@ -3489,87 +3440,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">skills_id</th>
-<th data-quarto-table-cell-role="th">name</th>
-<th data-quarto-table-cell-role="th">description</th>
-<th data-quarto-table-cell-role="th">tag</th>
-<th data-quarto-table-cell-role="th">url</th>
-<th data-quarto-table-cell-role="th">time_commitment</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>Digital Marketing Mastery</td>
-<td>Master the art of digital marketing strategies...</td>
-<td>Skill 1</td>
-<td>https://example.com/digital-marketing</td>
-<td>80</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>Mobile App Development</td>
-<td>Learn to build mobile applications for iOS and...</td>
-<td>Skill 2</td>
-<td>https://example.com/app-development</td>
-<td>120</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>Graphic Design Essentials</td>
-<td>Explore the principles of graphic design and c...</td>
-<td>Skill 3</td>
-<td>https://example.com/graphic-design</td>
-<td>60</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>4</td>
-<td>Machine Learning Fundamentals</td>
-<td>Dive into the basics of machine learning algor...</td>
-<td>Skill 4</td>
-<td>https://example.com/machine-learning</td>
-<td>100</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>5</td>
-<td>Creative Writing Techniques</td>
-<td>Hone your creative writing skills and craft co...</td>
-<td>Skill 5</td>
-<td>https://example.com/creative-writing</td>
-<td>40</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>6</td>
-<td>Photography for Beginners</td>
-<td>Discover the fundamentals of photography and c...</td>
-<td>Skill 6</td>
-<td>https://example.com/photography</td>
-<td>50</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>7</td>
-<td>Agile Project Management</td>
-<td>Master Agile methodologies for efficient proje...</td>
-<td>Skill 7</td>
-<td>https://example.com/agile-project-management</td>
-<td>90</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>8</td>
-<td>Cybersecurity Essentials</td>
-<td>Understand the basics of cybersecurity and pro...</td>
-<td>Skill 8</td>
-<td>https://example.com/cybersecurity</td>
-<td>70</td>
-</tr>
 </tbody>
 </table>
 
@@ -3582,6 +3455,14 @@ z-index: 1000;
 <p>The <em>roles</em> table contains elements that describe …</p>
 <p>Below is a list of data in the <em>roles</em> table.</p>
 <div class="cell" data-execution_count="7">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
@@ -3590,48 +3471,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">roles_id</th>
-<th data-quarto-table-cell-role="th">name</th>
-<th data-quarto-table-cell-role="th">sort_priority</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>Designer</td>
-<td>10</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>Developer</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>Recruit</td>
-<td>30</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>4</td>
-<td>Team Lead</td>
-<td>40</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>5</td>
-<td>Boss</td>
-<td>50</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>6</td>
-<td>Mentor</td>
-<td>60</td>
-</tr>
 </tbody>
 </table>
 
@@ -3647,6 +3489,14 @@ z-index: 1000;
 <section id="list-skill-names-tags-and-descriptions-ordered-by-name" class="level1">
 <h1>List skill names, tags, and descriptions ordered by name</h1>
 <div class="cell" data-execution_count="8">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
@@ -3655,60 +3505,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">skills_name</th>
-<th data-quarto-table-cell-role="th">skills_tag</th>
-<th data-quarto-table-cell-role="th">skills_description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Agile Project Management</td>
-<td>Skill 7</td>
-<td>Master Agile methodologies for efficient proje...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Creative Writing Techniques</td>
-<td>Skill 5</td>
-<td>Hone your creative writing skills and craft co...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Cybersecurity Essentials</td>
-<td>Skill 8</td>
-<td>Understand the basics of cybersecurity and pro...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Digital Marketing Mastery</td>
-<td>Skill 1</td>
-<td>Master the art of digital marketing strategies...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Graphic Design Essentials</td>
-<td>Skill 3</td>
-<td>Explore the principles of graphic design and c...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Machine Learning Fundamentals</td>
-<td>Skill 4</td>
-<td>Dive into the basics of machine learning algor...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Mobile App Development</td>
-<td>Skill 2</td>
-<td>Learn to build mobile applications for iOS and...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Photography for Beginners</td>
-<td>Skill 6</td>
-<td>Discover the fundamentals of photography and c...</td>
-</tr>
 </tbody>
 </table>
 
@@ -3718,6 +3517,14 @@ z-index: 1000;
 <section id="list-people-names-and-email-addresses-ordered-by-last_name" class="level3">
 <h3 class="anchored" data-anchor-id="list-people-names-and-email-addresses-ordered-by-last_name">List people names and email addresses ordered by last_name</h3>
 <div class="cell" data-execution_count="9">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
@@ -3726,87 +3533,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">skills_id</th>
-<th data-quarto-table-cell-role="th">name</th>
-<th data-quarto-table-cell-role="th">description</th>
-<th data-quarto-table-cell-role="th">tag</th>
-<th data-quarto-table-cell-role="th">url</th>
-<th data-quarto-table-cell-role="th">time_commitment</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>Digital Marketing Mastery</td>
-<td>Master the art of digital marketing strategies...</td>
-<td>Skill 1</td>
-<td>https://example.com/digital-marketing</td>
-<td>80</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>Mobile App Development</td>
-<td>Learn to build mobile applications for iOS and...</td>
-<td>Skill 2</td>
-<td>https://example.com/app-development</td>
-<td>120</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>Graphic Design Essentials</td>
-<td>Explore the principles of graphic design and c...</td>
-<td>Skill 3</td>
-<td>https://example.com/graphic-design</td>
-<td>60</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>4</td>
-<td>Machine Learning Fundamentals</td>
-<td>Dive into the basics of machine learning algor...</td>
-<td>Skill 4</td>
-<td>https://example.com/machine-learning</td>
-<td>100</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>5</td>
-<td>Creative Writing Techniques</td>
-<td>Hone your creative writing skills and craft co...</td>
-<td>Skill 5</td>
-<td>https://example.com/creative-writing</td>
-<td>40</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>6</td>
-<td>Photography for Beginners</td>
-<td>Discover the fundamentals of photography and c...</td>
-<td>Skill 6</td>
-<td>https://example.com/photography</td>
-<td>50</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>7</td>
-<td>Agile Project Management</td>
-<td>Master Agile methodologies for efficient proje...</td>
-<td>Skill 7</td>
-<td>https://example.com/agile-project-management</td>
-<td>90</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>8</td>
-<td>Cybersecurity Essentials</td>
-<td>Understand the basics of cybersecurity and pro...</td>
-<td>Skill 8</td>
-<td>https://example.com/cybersecurity</td>
-<td>70</td>
-</tr>
 </tbody>
 </table>
 
@@ -3817,6 +3546,14 @@ z-index: 1000;
 <section id="list-skill-names-of-person-1" class="level3">
 <h3 class="anchored" data-anchor-id="list-skill-names-of-person-1">List skill names of Person 1</h3>
 <div class="cell" data-execution_count="10">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
@@ -3825,87 +3562,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">skills_id</th>
-<th data-quarto-table-cell-role="th">name</th>
-<th data-quarto-table-cell-role="th">description</th>
-<th data-quarto-table-cell-role="th">tag</th>
-<th data-quarto-table-cell-role="th">url</th>
-<th data-quarto-table-cell-role="th">time_commitment</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>Digital Marketing Mastery</td>
-<td>Master the art of digital marketing strategies...</td>
-<td>Skill 1</td>
-<td>https://example.com/digital-marketing</td>
-<td>80</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>Mobile App Development</td>
-<td>Learn to build mobile applications for iOS and...</td>
-<td>Skill 2</td>
-<td>https://example.com/app-development</td>
-<td>120</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>Graphic Design Essentials</td>
-<td>Explore the principles of graphic design and c...</td>
-<td>Skill 3</td>
-<td>https://example.com/graphic-design</td>
-<td>60</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>4</td>
-<td>Machine Learning Fundamentals</td>
-<td>Dive into the basics of machine learning algor...</td>
-<td>Skill 4</td>
-<td>https://example.com/machine-learning</td>
-<td>100</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>5</td>
-<td>Creative Writing Techniques</td>
-<td>Hone your creative writing skills and craft co...</td>
-<td>Skill 5</td>
-<td>https://example.com/creative-writing</td>
-<td>40</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>6</td>
-<td>Photography for Beginners</td>
-<td>Discover the fundamentals of photography and c...</td>
-<td>Skill 6</td>
-<td>https://example.com/photography</td>
-<td>50</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>7</td>
-<td>Agile Project Management</td>
-<td>Master Agile methodologies for efficient proje...</td>
-<td>Skill 7</td>
-<td>https://example.com/agile-project-management</td>
-<td>90</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>8</td>
-<td>Cybersecurity Essentials</td>
-<td>Understand the basics of cybersecurity and pro...</td>
-<td>Skill 8</td>
-<td>https://example.com/cybersecurity</td>
-<td>70</td>
-</tr>
 </tbody>
 </table>
 
@@ -3916,6 +3575,14 @@ z-index: 1000;
 <section id="list-people-names-with-skill-6" class="level3">
 <h3 class="anchored" data-anchor-id="list-people-names-with-skill-6">List people names with Skill 6</h3>
 <div class="cell" data-execution_count="11">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
@@ -3924,21 +3591,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">first_name</th>
-<th data-quarto-table-cell-role="th">last_name</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>John</td>
-<td>Person 1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Charlie</td>
-<td>Person 5</td>
-</tr>
 </tbody>
 </table>
 
@@ -3949,6 +3604,14 @@ z-index: 1000;
 <section id="list-people-with-a-developer-role" class="level3">
 <h3 class="anchored" data-anchor-id="list-people-with-a-developer-role">List people with a DEVELOPER role</h3>
 <div class="cell" data-execution_count="12">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
@@ -3957,21 +3620,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">first_name</th>
-<th data-quarto-table-cell-role="th">last_name</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>John</td>
-<td>Person 1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Charlie</td>
-<td>Person 5</td>
-</tr>
 </tbody>
 </table>
 
@@ -3982,6 +3633,14 @@ z-index: 1000;
 <section id="list-names-and-email-addresses-of-people-without-skills" class="level3">
 <h3 class="anchored" data-anchor-id="list-names-and-email-addresses-of-people-without-skills">List names and email addresses of people without skills</h3>
 <div class="cell" data-execution_count="13">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
@@ -3990,18 +3649,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">first_name</th>
-<th data-quarto-table-cell-role="th">last_name</th>
-<th data-quarto-table-cell-role="th">email</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Alice</td>
-<td>Person 4</td>
-<td>alice.person4@example.com</td>
-</tr>
 </tbody>
 </table>
 
@@ -4012,6 +3662,14 @@ z-index: 1000;
 <section id="list-names-and-tags-of-unused-skills" class="level3">
 <h3 class="anchored" data-anchor-id="list-names-and-tags-of-unused-skills">List names and tags of unused skills</h3>
 <div class="cell" data-execution_count="14">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
@@ -4020,18 +3678,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">first_name</th>
-<th data-quarto-table-cell-role="th">last_name</th>
-<th data-quarto-table-cell-role="th">email</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Alice</td>
-<td>Person 4</td>
-<td>alice.person4@example.com</td>
-</tr>
 </tbody>
 </table>
 
@@ -4042,6 +3691,14 @@ z-index: 1000;
 <section id="list-people-names-and-skill-names-with-the-boss-role" class="level3">
 <h3 class="anchored" data-anchor-id="list-people-names-and-skill-names-with-the-boss-role">List people names and skill names with the BOSS role</h3>
 <div class="cell" data-execution_count="15">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
@@ -4050,48 +3707,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">roles_id</th>
-<th data-quarto-table-cell-role="th">name</th>
-<th data-quarto-table-cell-role="th">sort_priority</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>Designer</td>
-<td>10</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>Developer</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>Recruit</td>
-<td>30</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>4</td>
-<td>Team Lead</td>
-<td>40</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>5</td>
-<td>Boss</td>
-<td>50</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>6</td>
-<td>Mentor</td>
-<td>60</td>
-</tr>
 </tbody>
 </table>
 
@@ -4102,6 +3720,14 @@ z-index: 1000;
 <section id="list-ids-and-names-of-unused-roles" class="level3">
 <h3 class="anchored" data-anchor-id="list-ids-and-names-of-unused-roles">List ids and names of unused roles</h3>
 <div class="cell" data-execution_count="16">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 11001] getaddrinfo failed)&quot;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Ignoring and moving on.</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
@@ -4110,48 +3736,9 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">roles_id</th>
-<th data-quarto-table-cell-role="th">name</th>
-<th data-quarto-table-cell-role="th">sort_priority</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>Designer</td>
-<td>10</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>Developer</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>Recruit</td>
-<td>30</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>4</td>
-<td>Team Lead</td>
-<td>40</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>5</td>
-<td>Boss</td>
-<td>50</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>6</td>
-<td>Mentor</td>
-<td>60</td>
-</tr>
 </tbody>
 </table>
 
